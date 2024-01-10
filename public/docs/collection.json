@@ -1,0 +1,574 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost:8000"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "dfe75eea-9ff7-40b7-b8ce-96e1706648df",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Authentication management",
+            "description": "\nAPIs for autenticating user",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"mahusay@gmail.com\",\"password\":\"password\"}"
+                        },
+                        "description": "This endpoint allows you to login to the application.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": {\n  \"access_token\": \"26|XbEfRWazh4Nh5tBdNZlUgZCq8MltnIeNgrvHQzZhe6f55227\",\n  \"token_type\": \"Bearer\",\n  \"user\": {\n      \"id\": 1,\n      \"name\": \"Juana Hayes\",\n      \"email\": \"tbednar@example.com\",\n      \"email_verified_at\": \"2024-01-09T04:12:17.000000Z\",\n      \"is_admin\": 1,\n      \"created_at\": \"2024-01-09T04:12:18.000000Z\",\n      \"updated_at\": \"2024-01-09T04:12:18.000000Z\"\n      }\n  }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "This endpoint allows you to logout to the application."
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n  \"data\": {\n      \"message\": \"logout\",\n      }\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Device management",
+            "description": "\nAPIs for managing devices",
+            "item": [
+                {
+                    "name": "Utilities",
+                    "description": "generate and download csv",
+                    "item": [
+                        {
+                            "name": "Generate Export CSV",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/devices\/generate-export-link",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/devices\/generate-export-link"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "This endpoint allows you to generate csv for the devices so you can export it."
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"message\":\"Unauthenticated\"}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get Export CSV download link",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/devices\/get-download-link",
+                                    "query": [
+                                        {
+                                            "key": "export_id",
+                                            "value": "voluptas",
+                                            "description": "the id of the generated export link",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filename",
+                                            "value": "et",
+                                            "description": "the filename of the generated export link",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "{{baseUrl}}\/api\/v1\/devices\/get-download-link?export_id=voluptas&filename=et"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"export_id\":\"quo\",\"file_name\":\"nemo\"}"
+                                },
+                                "description": "This endpoint allows you to get the download link of the csv generated."
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"message\":\"Unauthenticated\"}",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Helpers",
+                    "description": "get available sim cards",
+                    "item": [
+                        {
+                            "name": "Get Sim Card List",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/devices\/sim-cards",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/devices\/sim-cards"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "This endpoint allows you to get all the sim card that was not yet assigned to a device"
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"message\":\"Unauthenticated\"}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Get User List",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/devices\/users",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/devices\/users"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "This endpoint allows you to get all the users"
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"message\":\"Unauthenticated\"}",
+                                    "name": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Main",
+                    "description": "crud operation for devices",
+                    "item": [
+                        {
+                            "name": "Device List",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/devices",
+                                    "query": [
+                                        {
+                                            "key": "os",
+                                            "value": "ios",
+                                            "description": "the operating sytem you want to filter.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "q",
+                                            "value": "samsung",
+                                            "description": "the query\/filter you want to search for imei, model, serial, manufacturer of the device.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "{{baseUrl}}\/api\/v1\/devices?os=ios&q=samsung"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "This endpoint allows you to get all the devices."
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"message\":\"Unauthenticated\"}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Add Device",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/devices",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/devices"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"user_id\":1,\"sim_card_id\":1,\"serial_number\":\"SMG19999586660001\",\"imei\":\"SNG1800\",\"operating_system\":\"andriod\",\"type\":\"mobile\",\"manufacturer\":\"Samsung\",\"model\":\"amet\",\"is_active\":16}"
+                                },
+                                "description": "This endpoint allows you to add a devices."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "View Device",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/devices\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/devices\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "The ID of the device."
+                                        },
+                                        {
+                                            "id": "device_id",
+                                            "key": "device_id",
+                                            "value": "1",
+                                            "description": "The id of the device."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "This endpoint allows you to view a devices more details."
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"message\":\"Unauthenticated\"}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update Device",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/devices\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/devices\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "The ID of the device."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"user_id\":1,\"sim_card_id\":1,\"serial_number\":\"SMG19999586660001\",\"imei\":\"SNG1800\",\"operating_system\":\"andriod\",\"type\":\"mobile\",\"manufacturer\":\"Samsung\",\"model\":\"corporis\",\"is_active\":0}"
+                                },
+                                "description": "This endpoint allows you to update a devices."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Delete Device",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/devices\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/devices\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "The ID of the device."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "This endpoint allows you to delete a devices."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Update Device Status",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/devices\/status\/:device_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/devices\/status\/:device_id",
+                                    "variable": [
+                                        {
+                                            "id": "device_id",
+                                            "key": "device_id",
+                                            "value": "1",
+                                            "description": "The id of the device."
+                                        }
+                                    ]
+                                },
+                                "method": "PATCH",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"is_active\":0}"
+                                },
+                                "description": ""
+                            },
+                            "response": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "key",
+                "type": "string"
+            }
+        ]
+    }
+}

@@ -1,0 +1,1 @@
+<p>Hallo! your device has been deactivated</p>

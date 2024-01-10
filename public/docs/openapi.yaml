@@ -1,0 +1,477 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+paths:
+  /api/v1/login:
+    post:
+      summary: Login
+      operationId: login
+      description: 'This endpoint allows you to login to the application.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    access_token: 26|XbEfRWazh4Nh5tBdNZlUgZCq8MltnIeNgrvHQzZhe6f55227
+                    token_type: Bearer
+                    user:
+                      id: 1
+                      name: 'Juana Hayes'
+                      email: tbednar@example.com
+                      email_verified_at: '2024-01-09T04:12:17.000000Z'
+                      is_admin: 1
+                      created_at: '2024-01-09T04:12:18.000000Z'
+                      updated_at: '2024-01-09T04:12:18.000000Z'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      access_token:
+                        type: string
+                        example: 26|XbEfRWazh4Nh5tBdNZlUgZCq8MltnIeNgrvHQzZhe6f55227
+                      token_type:
+                        type: string
+                        example: Bearer
+                      user:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                          name:
+                            type: string
+                            example: 'Juana Hayes'
+                          email:
+                            type: string
+                            example: tbednar@example.com
+                          email_verified_at:
+                            type: string
+                            example: '2024-01-09T04:12:17.000000Z'
+                          is_admin:
+                            type: integer
+                            example: 1
+                          created_at:
+                            type: string
+                            example: '2024-01-09T04:12:18.000000Z'
+                          updated_at:
+                            type: string
+                            example: '2024-01-09T04:12:18.000000Z'
+      tags:
+        - 'Authentication management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'the email of the user.'
+                  example: mahusay@gmail.com
+                password:
+                  type: string
+                  description: 'the password of the user.'
+                  example: password
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/logout:
+    post:
+      summary: Logout
+      operationId: logout
+      description: 'This endpoint allows you to logout to the application.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n  \"data\": {\n      \"message\": \"logout\",\n      }\n}"
+      tags:
+        - 'Authentication management'
+  /api/v1/devices/generate-export-link:
+    get:
+      summary: 'Generate Export CSV'
+      operationId: generateExportCSV
+      description: 'This endpoint allows you to generate csv for the devices so you can export it.'
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+      tags:
+        - 'Device management'
+  /api/v1/devices/get-download-link:
+    get:
+      summary: 'Get Export CSV download link'
+      operationId: getExportCSVDownloadLink
+      description: 'This endpoint allows you to get the download link of the csv generated.'
+      parameters:
+        -
+          in: query
+          name: export_id
+          description: 'the id of the generated export link'
+          example: voluptas
+          required: true
+          schema:
+            type: string
+            description: 'the id of the generated export link'
+            example: voluptas
+        -
+          in: query
+          name: filename
+          description: 'the filename of the generated export link'
+          example: et
+          required: true
+          schema:
+            type: string
+            description: 'the filename of the generated export link'
+            example: et
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+      tags:
+        - 'Device management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                export_id:
+                  type: string
+                  description: ''
+                  example: quo
+                file_name:
+                  type: string
+                  description: ''
+                  example: nemo
+              required:
+                - export_id
+                - file_name
+  /api/v1/devices/sim-cards:
+    get:
+      summary: 'Get Sim Card List'
+      operationId: getSimCardList
+      description: 'This endpoint allows you to get all the sim card that was not yet assigned to a device'
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+      tags:
+        - 'Device management'
+  /api/v1/devices/users:
+    get:
+      summary: 'Get User List'
+      operationId: getUserList
+      description: 'This endpoint allows you to get all the users'
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+      tags:
+        - 'Device management'
+  /api/v1/devices:
+    get:
+      summary: 'Device List'
+      operationId: deviceList
+      description: 'This endpoint allows you to get all the devices.'
+      parameters:
+        -
+          in: query
+          name: os
+          description: 'the operating sytem you want to filter.'
+          example: ios
+          required: false
+          schema:
+            type: string
+            description: 'the operating sytem you want to filter.'
+            example: ios
+        -
+          in: query
+          name: q
+          description: 'the query/filter you want to search for imei, model, serial, manufacturer of the device.'
+          example: samsung
+          required: false
+          schema:
+            type: string
+            description: 'the query/filter you want to search for imei, model, serial, manufacturer of the device.'
+            example: samsung
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+      tags:
+        - 'Device management'
+    post:
+      summary: 'Add Device'
+      operationId: addDevice
+      description: 'This endpoint allows you to add a devices.'
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Device management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: 'the user you want to assign this device, it must exist in the user list.'
+                  example: 1
+                sim_card_id:
+                  type: integer
+                  description: 'the sim card you want to assign to this device, it must exist in the sim list and doenst belong to any device yet.'
+                  example: 1
+                serial_number:
+                  type: string
+                  description: 'it must be unique.'
+                  example: SMG19999586660001
+                imei:
+                  type: string
+                  description: 'it must be unique.'
+                  example: SNG1800
+                operating_system:
+                  type: string
+                  description: 'the operating system of the device it should be ios or andriod.'
+                  example: andriod
+                type:
+                  type: string
+                  description: 'the type of the device it should be mobile or tablet.'
+                  example: mobile
+                manufacturer:
+                  type: string
+                  description: 'manufacturer of the device.'
+                  example: Samsung
+                model:
+                  type: string
+                  description: 'model of the device. Example Samsung: Galaxy'
+                  example: amet
+                is_active:
+                  type: integer
+                  description: ''
+                  example: 16
+              required:
+                - user_id
+                - sim_card_id
+                - serial_number
+                - imei
+                - operating_system
+                - type
+  '/api/v1/devices/{id}':
+    get:
+      summary: 'View Device'
+      operationId: viewDevice
+      description: 'This endpoint allows you to view a devices more details.'
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated
+      tags:
+        - 'Device management'
+    put:
+      summary: 'Update Device'
+      operationId: updateDevice
+      description: 'This endpoint allows you to update a devices.'
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Device management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: 'the user you want to assign this device, it must exist in the user list.'
+                  example: 1
+                sim_card_id:
+                  type: integer
+                  description: 'the sim card you want to assign to this device, it must exist in the sim list and doenst belong to any device yet.'
+                  example: 1
+                serial_number:
+                  type: string
+                  description: 'it must be unique.'
+                  example: SMG19999586660001
+                imei:
+                  type: string
+                  description: 'it must be unique.'
+                  example: SNG1800
+                operating_system:
+                  type: string
+                  description: 'the operating system of the device it should be ios or andriod.'
+                  example: andriod
+                type:
+                  type: string
+                  description: 'the type of the device it should be mobile or tablet.'
+                  example: mobile
+                manufacturer:
+                  type: string
+                  description: 'manufacturer of the device.'
+                  example: Samsung
+                model:
+                  type: string
+                  description: 'model of the device. Example Samsung: Galaxy'
+                  example: corporis
+                is_active:
+                  type: integer
+                  description: 'if you want to update the status of the device 1 for active 0 for inactive.'
+                  example: 0
+              required:
+                - user_id
+                - sim_card_id
+                - serial_number
+                - imei
+                - operating_system
+                - type
+    delete:
+      summary: 'Delete Device'
+      operationId: deleteDevice
+      description: 'This endpoint allows you to delete a devices.'
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Device management'
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the device.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: device_id
+        description: 'The id of the device.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/devices/status/{device_id}':
+    patch:
+      summary: 'Update Device Status'
+      operationId: updateDeviceStatus
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Device management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_active:
+                  type: integer
+                  description: 'if you want to update the status of the device 1 for active 0 for inactive.'
+                  example: 0
+              required:
+                - is_active
+    parameters:
+      -
+        in: path
+        name: device_id
+        description: 'The id of the device.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: 'Authentication management'
+    description: "\nAPIs for autenticating user"
+  -
+    name: 'Device management'
+    description: "\nAPIs for managing devices"
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.'
+security:
+  -
+    default: []

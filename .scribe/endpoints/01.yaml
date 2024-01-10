@@ -1,0 +1,720 @@
+name: 'Device management'
+description: |-
+
+  APIs for managing devices
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/devices/generate-export-link
+    metadata:
+      groupName: 'Device management'
+      groupDescription: |-
+
+        APIs for managing devices
+      subgroup: Utilities
+      subgroupDescription: 'generate and download csv'
+      title: 'Generate Export CSV'
+      description: 'This endpoint allows you to generate csv for the devices so you can export it.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 5PEvZDaahb3648V6ek1fcdg'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/devices/get-download-link
+    metadata:
+      groupName: 'Device management'
+      groupDescription: |-
+
+        APIs for managing devices
+      subgroup: Utilities
+      subgroupDescription: 'generate and download csv'
+      title: 'Get Export CSV download link'
+      description: 'This endpoint allows you to get the download link of the csv generated.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      export_id:
+        name: export_id
+        description: 'the id of the generated export link'
+        required: true
+        example: voluptas
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      filename:
+        name: filename
+        description: 'the filename of the generated export link'
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanQueryParameters:
+      export_id: voluptas
+      filename: et
+    bodyParameters:
+      export_id:
+        name: export_id
+        description: ''
+        required: true
+        example: quo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      file_name:
+        name: file_name
+        description: ''
+        required: true
+        example: nemo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      export_id: quo
+      file_name: nemo
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 65EaPZbVakD4f3c6d8ehgv1'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/devices/sim-cards
+    metadata:
+      groupName: 'Device management'
+      groupDescription: |-
+
+        APIs for managing devices
+      subgroup: Helpers
+      subgroupDescription: 'get available sim cards'
+      title: 'Get Sim Card List'
+      description: 'This endpoint allows you to get all the sim card that was not yet assigned to a device'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer DPgk8EfbZecVa661d5v3h4a'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/devices/users
+    metadata:
+      groupName: 'Device management'
+      groupDescription: |-
+
+        APIs for managing devices
+      subgroup: Helpers
+      subgroupDescription: 'get users'
+      title: 'Get User List'
+      description: 'This endpoint allows you to get all the users'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ac63bfEgd4DaZe6hVP81kv5'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/devices
+    metadata:
+      groupName: 'Device management'
+      groupDescription: |-
+
+        APIs for managing devices
+      subgroup: Main
+      subgroupDescription: 'crud operation for devices'
+      title: 'Device List'
+      description: 'This endpoint allows you to get all the devices.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      os:
+        name: os
+        description: 'the operating sytem you want to filter.'
+        required: false
+        example: ios
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      q:
+        name: q
+        description: 'the query/filter you want to search for imei, model, serial, manufacturer of the device.'
+        required: false
+        example: samsung
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanQueryParameters:
+      os: ios
+      q: samsung
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer kVdc4DE5ahfa6gPZ381e6bv'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/devices
+    metadata:
+      groupName: 'Device management'
+      groupDescription: |-
+
+        APIs for managing devices
+      subgroup: Main
+      subgroupDescription: 'crud operation for devices'
+      title: 'Add Device'
+      description: 'This endpoint allows you to add a devices.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'the user you want to assign this device, it must exist in the user list.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      sim_card_id:
+        name: sim_card_id
+        description: 'the sim card you want to assign to this device, it must exist in the sim list and doenst belong to any device yet.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      serial_number:
+        name: serial_number
+        description: 'it must be unique.'
+        required: true
+        example: SMG19999586660001
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      imei:
+        name: imei
+        description: 'it must be unique.'
+        required: true
+        example: SNG1800
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      operating_system:
+        name: operating_system
+        description: 'the operating system of the device it should be ios or andriod.'
+        required: true
+        example: andriod
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      type:
+        name: type
+        description: 'the type of the device it should be mobile or tablet.'
+        required: true
+        example: mobile
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      manufacturer:
+        name: manufacturer
+        description: 'manufacturer of the device.'
+        required: false
+        example: Samsung
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      model:
+        name: model
+        description: 'model of the device. Example Samsung: Galaxy'
+        required: false
+        example: amet
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      is_active:
+        name: is_active
+        description: ''
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      user_id: 1
+      sim_card_id: 1
+      serial_number: SMG19999586660001
+      imei: SNG1800
+      operating_system: andriod
+      type: mobile
+      manufacturer: Samsung
+      model: amet
+      is_active: 16
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer a8Z1fchE6e3VP5Dda4bv6gk'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/devices/{id}'
+    metadata:
+      groupName: 'Device management'
+      groupDescription: |-
+
+        APIs for managing devices
+      subgroup: Main
+      subgroupDescription: 'crud operation for devices'
+      title: 'View Device'
+      description: 'This endpoint allows you to view a devices more details.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the device.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      device_id:
+        name: device_id
+        description: 'The id of the device.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanUrlParameters:
+      id: 1
+      device_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer DPk3EbZdv5648aha6e1Vcfg'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/devices/{id}'
+    metadata:
+      groupName: 'Device management'
+      groupDescription: |-
+
+        APIs for managing devices
+      subgroup: Main
+      subgroupDescription: 'crud operation for devices'
+      title: 'Update Device'
+      description: 'This endpoint allows you to update a devices.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the device.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'the user you want to assign this device, it must exist in the user list.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      sim_card_id:
+        name: sim_card_id
+        description: 'the sim card you want to assign to this device, it must exist in the sim list and doenst belong to any device yet.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      serial_number:
+        name: serial_number
+        description: 'it must be unique.'
+        required: true
+        example: SMG19999586660001
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      imei:
+        name: imei
+        description: 'it must be unique.'
+        required: true
+        example: SNG1800
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      operating_system:
+        name: operating_system
+        description: 'the operating system of the device it should be ios or andriod.'
+        required: true
+        example: andriod
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      type:
+        name: type
+        description: 'the type of the device it should be mobile or tablet.'
+        required: true
+        example: mobile
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      manufacturer:
+        name: manufacturer
+        description: 'manufacturer of the device.'
+        required: false
+        example: Samsung
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+      model:
+        name: model
+        description: 'model of the device. Example Samsung: Galaxy'
+        required: false
+        example: corporis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      is_active:
+        name: is_active
+        description: 'if you want to update the status of the device 1 for active 0 for inactive.'
+        required: false
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanBodyParameters:
+      user_id: 1
+      sim_card_id: 1
+      serial_number: SMG19999586660001
+      imei: SNG1800
+      operating_system: andriod
+      type: mobile
+      manufacturer: Samsung
+      model: corporis
+      is_active: 0
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer ked4ca5gZ1V3fv66Eab8hPD'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/devices/{id}'
+    metadata:
+      groupName: 'Device management'
+      groupDescription: |-
+
+        APIs for managing devices
+      subgroup: Main
+      subgroupDescription: 'crud operation for devices'
+      title: 'Delete Device'
+      description: 'This endpoint allows you to delete a devices.'
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the device.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3ehb16gavE485fDdVkaZP6c'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/v1/devices/status/{device_id}'
+    metadata:
+      groupName: 'Device management'
+      groupDescription: |-
+
+        APIs for managing devices
+      subgroup: Main
+      subgroupDescription: 'crud operation for devices'
+      title: 'Update Device Status'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      device_id:
+        name: device_id
+        description: 'The id of the device.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanUrlParameters:
+      device_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      is_active:
+        name: is_active
+        description: 'if you want to update the status of the device 1 for active 0 for inactive.'
+        required: true
+        example: 0
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        custom: []
+    cleanBodyParameters:
+      is_active: 0
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 8ebhf1453ZDVag6Pda6kEcv'
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -33,10 +33,10 @@ return new class extends Migration
         //     $table->timestamps();
         // });
 
-        Schema::create('device_user_history', function (Blueprint $table) {
+        Schema::create('device_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('device_id')->nullable()->constrained('devices')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('device_id')->constrained('devices')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
@@ -47,7 +47,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('devices');
-        Schema::dropIfExists('device_status');
-        Schema::dropIfExists('device_user_history');
+        Schema::dropIfExists('device_user');
     }
 };

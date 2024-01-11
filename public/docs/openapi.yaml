@@ -134,22 +134,22 @@ paths:
           in: query
           name: export_id
           description: 'the id of the generated export link'
-          example: sint
+          example: quo
           required: true
           schema:
             type: string
             description: 'the id of the generated export link'
-            example: sint
+            example: quo
         -
           in: query
           name: filename
           description: 'the filename of the generated export link'
-          example: qui
+          example: omnis
           required: true
           schema:
             type: string
             description: 'the filename of the generated export link'
-            example: qui
+            example: omnis
       responses:
         401:
           description: ''
@@ -175,11 +175,11 @@ paths:
                 export_id:
                   type: string
                   description: ''
-                  example: amet
+                  example: ea
                 file_name:
                   type: string
                   description: ''
-                  example: sunt
+                  example: eligendi
               required:
                 - export_id
                 - file_name
@@ -297,6 +297,14 @@ paths:
                   type: string
                   description: 'it must be unique.'
                   example: SNG1800
+                model:
+                  type: string
+                  description: 'model of the device. Example Samsung: Galaxy'
+                  example: nihil
+                manufacturer:
+                  type: string
+                  description: 'manufacturer of the device.'
+                  example: Samsung
                 operating_system:
                   type: string
                   description: 'the operating system of the device it should be ios or andriod.'
@@ -305,18 +313,6 @@ paths:
                   type: string
                   description: 'the type of the device it should be mobile or tablet.'
                   example: mobile
-                manufacturer:
-                  type: string
-                  description: 'manufacturer of the device.'
-                  example: Samsung
-                model:
-                  type: string
-                  description: 'model of the device. Example Samsung: Galaxy'
-                  example: aliquid
-                is_active:
-                  type: integer
-                  description: ''
-                  example: 15
               required:
                 - user_id
                 - sim_card_id
@@ -376,6 +372,14 @@ paths:
                   type: string
                   description: 'it must be unique.'
                   example: SNG1800
+                model:
+                  type: string
+                  description: 'model of the device. Example Samsung: Galaxy'
+                  example: non
+                manufacturer:
+                  type: string
+                  description: 'manufacturer of the device.'
+                  example: Samsung
                 operating_system:
                   type: string
                   description: 'the operating system of the device it should be ios or andriod.'
@@ -384,14 +388,6 @@ paths:
                   type: string
                   description: 'the type of the device it should be mobile or tablet.'
                   example: mobile
-                manufacturer:
-                  type: string
-                  description: 'manufacturer of the device.'
-                  example: Samsung
-                model:
-                  type: string
-                  description: 'model of the device. Example Samsung: Galaxy'
-                  example: laboriosam
                 is_active:
                   type: integer
                   description: 'if you want to update the status of the device 1 for active 0 for inactive.'

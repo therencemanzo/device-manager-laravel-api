@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Scout\Engines\Engine;
@@ -29,9 +30,14 @@ class Device extends Model
         'status_update_at'
     ];
 
-    public function user() : BelongsTo
+    public function users() : BelongsToMany
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsToMany(User::class);
+    }
+
+    public function latestUser()  
+    {
+        return $this->users()->withPivot('id')->orderBy('pivot_id', 'desc');
     }
 
     public function simCard() : BelongsTo

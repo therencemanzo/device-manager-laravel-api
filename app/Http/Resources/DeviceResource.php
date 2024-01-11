@@ -17,7 +17,7 @@ class DeviceResource extends JsonResource
         return [
             'id' => $this->id,
             'sim_card' => new SimCardResource($this->simCard),
-            'user' => $this->user->name,
+            'user' => $this->latestUser[0]->name,
             'serial_number' => $this->serial_number,
             'imei' => $this->imei,
             'model' => $this->model,

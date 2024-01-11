@@ -34,7 +34,7 @@ class ProcessDeviceExport implements ShouldQueue
         ->map(function ($device) {
             return [
                 $device->id,
-                $device->user->name,
+                $device->latestUser[0]->name,
                 $device->simCard->name,
                 $device->simCard->phoneNumber->number,
                 $device->model,

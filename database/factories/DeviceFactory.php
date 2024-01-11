@@ -20,7 +20,6 @@ class DeviceFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
             'sim_card_id' => SimCard::factory(),
             'serial_number' => fake()->randomNumber(6, true).Str::random(10),
             'imei' => Str::random(6).fake()->randomNumber(4, true),

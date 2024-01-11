@@ -620,13 +620,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/devices/get-download-link?export_id=sint&amp;filename=qui" \
+    --get "http://localhost/api/v1/devices/get-download-link?export_id=quo&amp;filename=omnis" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"export_id\": \"amet\",
-    \"file_name\": \"sunt\"
+    \"export_id\": \"ea\",
+    \"file_name\": \"eligendi\"
 }"
 </code></pre></div>
 
@@ -637,8 +637,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const params = {
-    "export_id": "sint",
-    "filename": "qui",
+    "export_id": "quo",
+    "filename": "omnis",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -650,8 +650,8 @@ const headers = {
 };
 
 let body = {
-    "export_id": "amet",
-    "file_name": "sunt"
+    "export_id": "ea",
+    "file_name": "eligendi"
 };
 
 fetch(url, {
@@ -767,10 +767,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="export_id"                data-endpoint="GETapi-v1-devices-get-download-link"
-               value="sint"
+               value="quo"
                data-component="query">
     <br>
-<p>the id of the generated export link Example: <code>sint</code></p>
+<p>the id of the generated export link Example: <code>quo</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filename</code></b>&nbsp;&nbsp;
@@ -778,10 +778,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="filename"                data-endpoint="GETapi-v1-devices-get-download-link"
-               value="qui"
+               value="omnis"
                data-component="query">
     <br>
-<p>the filename of the generated export link Example: <code>qui</code></p>
+<p>the filename of the generated export link Example: <code>omnis</code></p>
             </div>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -790,10 +790,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="export_id"                data-endpoint="GETapi-v1-devices-get-download-link"
-               value="amet"
+               value="ea"
                data-component="body">
     <br>
-<p>Example: <code>amet</code></p>
+<p>Example: <code>ea</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>file_name</code></b>&nbsp;&nbsp;
@@ -801,10 +801,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="file_name"                data-endpoint="GETapi-v1-devices-get-download-link"
-               value="sunt"
+               value="eligendi"
                data-component="body">
     <br>
-<p>Example: <code>sunt</code></p>
+<p>Example: <code>eligendi</code></p>
         </div>
         </form>
 
@@ -1283,11 +1283,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"sim_card_id\": 1,
     \"serial_number\": \"SMG19999586660001\",
     \"imei\": \"SNG1800\",
-    \"operating_system\": \"andriod\",
-    \"type\": \"mobile\",
+    \"model\": \"nihil\",
     \"manufacturer\": \"Samsung\",
-    \"model\": \"aliquid\",
-    \"is_active\": 15
+    \"operating_system\": \"andriod\",
+    \"type\": \"mobile\"
 }"
 </code></pre></div>
 
@@ -1308,11 +1307,10 @@ let body = {
     "sim_card_id": 1,
     "serial_number": "SMG19999586660001",
     "imei": "SNG1800",
-    "operating_system": "andriod",
-    "type": "mobile",
+    "model": "nihil",
     "manufacturer": "Samsung",
-    "model": "aliquid",
-    "is_active": 15
+    "operating_system": "andriod",
+    "type": "mobile"
 };
 
 fetch(url, {
@@ -1451,6 +1449,28 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>it must be unique. Example: <code>SNG1800</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>model</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="model"                data-endpoint="POSTapi-v1-devices"
+               value="nihil"
+               data-component="body">
+    <br>
+<p>model of the device. Example Samsung: Galaxy Example: <code>nihil</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>manufacturer</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="manufacturer"                data-endpoint="POSTapi-v1-devices"
+               value="Samsung"
+               data-component="body">
+    <br>
+<p>manufacturer of the device. Example: <code>Samsung</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>operating_system</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
@@ -1471,39 +1491,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
                data-component="body">
     <br>
 <p>the type of the device it should be mobile or tablet. Example: <code>mobile</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>manufacturer</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="manufacturer"                data-endpoint="POSTapi-v1-devices"
-               value="Samsung"
-               data-component="body">
-    <br>
-<p>manufacturer of the device. Example: <code>Samsung</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>model</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="model"                data-endpoint="POSTapi-v1-devices"
-               value="aliquid"
-               data-component="body">
-    <br>
-<p>model of the device. Example Samsung: Galaxy Example: <code>aliquid</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="is_active"                data-endpoint="POSTapi-v1-devices"
-               value="15"
-               data-component="body">
-    <br>
-<p>Example: <code>15</code></p>
         </div>
         </form>
 
@@ -1691,10 +1678,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"sim_card_id\": 1,
     \"serial_number\": \"SMG19999586660001\",
     \"imei\": \"SNG1800\",
+    \"model\": \"non\",
+    \"manufacturer\": \"Samsung\",
     \"operating_system\": \"andriod\",
     \"type\": \"mobile\",
-    \"manufacturer\": \"Samsung\",
-    \"model\": \"laboriosam\",
     \"is_active\": 0
 }"
 </code></pre></div>
@@ -1716,10 +1703,10 @@ let body = {
     "sim_card_id": 1,
     "serial_number": "SMG19999586660001",
     "imei": "SNG1800",
+    "model": "non",
+    "manufacturer": "Samsung",
     "operating_system": "andriod",
     "type": "mobile",
-    "manufacturer": "Samsung",
-    "model": "laboriosam",
     "is_active": 0
 };
 
@@ -1875,6 +1862,28 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>it must be unique. Example: <code>SNG1800</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>model</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="model"                data-endpoint="PUTapi-v1-devices--id-"
+               value="non"
+               data-component="body">
+    <br>
+<p>model of the device. Example Samsung: Galaxy Example: <code>non</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>manufacturer</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="manufacturer"                data-endpoint="PUTapi-v1-devices--id-"
+               value="Samsung"
+               data-component="body">
+    <br>
+<p>manufacturer of the device. Example: <code>Samsung</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>operating_system</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
@@ -1895,28 +1904,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
                data-component="body">
     <br>
 <p>the type of the device it should be mobile or tablet. Example: <code>mobile</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>manufacturer</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="manufacturer"                data-endpoint="PUTapi-v1-devices--id-"
-               value="Samsung"
-               data-component="body">
-    <br>
-<p>manufacturer of the device. Example: <code>Samsung</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>model</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="model"                data-endpoint="PUTapi-v1-devices--id-"
-               value="laboriosam"
-               data-component="body">
-    <br>
-<p>model of the device. Example Samsung: Galaxy Example: <code>laboriosam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;

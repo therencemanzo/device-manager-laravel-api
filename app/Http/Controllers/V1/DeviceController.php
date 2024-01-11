@@ -13,12 +13,13 @@ use App\Models\SimCard;
 use App\Http\Resources\DeviceResource;
 use App\Http\Resources\UserResource;
 use App\Http\Requests\StoreDeviceRequest;
-use Illuminate\Validation\Rule;
+use App\Http\Requests\UpdateDeviceRequest;
 use App\Jobs\ProcessDeviceExport;
 use App\Jobs\AppendMoreDevices;
 use App\Jobs\SendEmailToUserWhenDeviceDeactivated;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 /**
  * @group Device management
@@ -41,7 +42,7 @@ class DeviceController extends Controller
     */
     public function index(Request $request)
     {
-        //
+        
         $devices = Device::search($request->q)
         ->when(isset($request->os), function($query) use ($request){
 
@@ -74,14 +75,10 @@ class DeviceController extends Controller
     */
     public function store(StoreDeviceRequest $request)
     {
-        $device = Device::create($request->validated());
-        $updateData = Device::find($device->id);
+        $device = Device::create($request->safe()->except(['user_id']));
+        $device->users()->syncWithoutDetaching([$request['user_id']]);
 
-        //record history of user
-        DeviceUserHistory::create([
-            'user_id' => $device->user_id,
-            'device_id' => $device->id
-        ]);
+        $updateData = Device::find($device->id);
 
         return DeviceResource::make($updateData)
         ->response()
@@ -119,37 +116,16 @@ class DeviceController extends Controller
         * @subgroupDescription crud operation for devices
         * @authenticated
     */
-    public function update(Request $request, Device $device)
+    public function update(UpdateDeviceRequest $request, Device $device)
     {   
-        //validation here to add query in the rules to allow update with the same value
-        $validated = $request->validate([
-            'user_id' => ['required', 'integer', 'exists:users,id'],
-            'sim_card_id' => ['required', 'integer', 'exists:sim_cards,id', Rule::unique('devices')->ignore($device->id)],
-            'serial_number' => ['required',  Rule::unique('devices')->ignore($device->id)],
-            'imei' => ['required',  Rule::unique('devices')->ignore($device->id)],
-            'operating_system' => ['required', Rule::in(['ios', 'andriod'])],
-            'type' => ['required', Rule::in(['mobile', 'tablet'])],
-            'manufacturer' => ['string'],
-            'model' => ['string'],
-            'is_active' => ['integer', Rule::in([0, 1])]
-        ]);
+        $validated = $request->validated();
 
-
-        $old_user_id = $device->user_id;
-
-        $device->update($validated);
+        $device->update($request->safe()->except(['user_id']));
         
-        //record history of user
-        if($old_user_id != $request->user_id){
-
-            DeviceUserHistory::create([
-                'user_id' => $request->user_id,
-                'device_id' => $device->id
-            ]);
-        }
 
         //update status active date for pruning
         $this->updateStatus($request, $device, 0);
+        $device->users()->attach($validated['user_id']);
 
         return DeviceResource::make($device);
 
@@ -168,17 +144,14 @@ class DeviceController extends Controller
 
     public function updateStatus(Request $request, Device $device, $withResponse = 1){
 
-        $validated = $request->validate([
-            'is_active' => ['required', 'integer', Rule::in([0, 1])],
-        ]);
-
+        $validated = $request->validated();
         $device->is_active = $validated['is_active'];
 
-        if($request->is_active == 0){
+        if($validated['is_active'] == 0){
             
             $device->status_update_at = date('Y-m-d H:i:s');
             $device->save();
-            dispatch(new SendEmailToUserWhenDeviceDeactivated($device->user));
+            dispatch(new SendEmailToUserWhenDeviceDeactivated($device->latestUser[0]));
         }
 
         if($withResponse == 1){
@@ -188,6 +161,7 @@ class DeviceController extends Controller
                 ]
             ], 200);
         }
+
     }
 
     /**

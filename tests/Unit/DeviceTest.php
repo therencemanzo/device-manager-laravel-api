@@ -60,7 +60,7 @@ class DeviceTest extends TestCase
         Sanctum::actingAs(
             $user,
         );
-        $user = User::doesntHave('devices')->first();
+        $user = User::first();
         $simcard = SimCard::doesntHave('device')->first();
 
         $data = [
@@ -86,7 +86,7 @@ class DeviceTest extends TestCase
         Sanctum::actingAs(
             $user,
         );
-        $user = User::doesntHave('devices')->first();
+        $user = User::first();
         $simcard = SimCard::doesntHave('device')->first();
 
         $data = [
@@ -116,7 +116,7 @@ class DeviceTest extends TestCase
         Sanctum::actingAs(
             $user,
         );
-        $user = User::doesntHave('devices')->first();
+        $user = User::first();
         $simcard = SimCard::has('device')->first();
 
         $data = [
@@ -146,7 +146,7 @@ class DeviceTest extends TestCase
         Sanctum::actingAs(
             $user,
         );
-        $user = User::doesntHave('devices')->first();
+        $user = User::first();
         $simcard = SimCard::doesntHave('device')->first();
         $device = Device::first();
 
@@ -177,7 +177,7 @@ class DeviceTest extends TestCase
         Sanctum::actingAs(
             $user,
         );
-        $user = User::doesntHave('devices')->first();
+        $user = User::first();
         $simcard = SimCard::doesntHave('device')->first();
         $device = Device::first();
 
@@ -208,7 +208,7 @@ class DeviceTest extends TestCase
         Sanctum::actingAs(
             $user,
         );
-        $user = User::doesntHave('devices')->first();
+        $user = User::first();
         $simcard = SimCard::doesntHave('device')->first();
 
         $data = [
@@ -238,7 +238,7 @@ class DeviceTest extends TestCase
         Sanctum::actingAs(
             $user,
         );
-        $user = User::doesntHave('devices')->first();
+        $user = User::first();
         $simcard = SimCard::doesntHave('device')->first();
         $device = Device::first();
 
@@ -300,7 +300,7 @@ class DeviceTest extends TestCase
         Sanctum::actingAs(
             $user,
         );
-        $user = User::doesntHave('devices')->first();
+        $user = User::first();
         User::orderBy('id', 'desc')->first();
 
         $simcard = SimCard::orderBy('id', 'desc')->first();
@@ -376,7 +376,7 @@ class DeviceTest extends TestCase
         $url = '/api/v1/devices/' . $device->id;
 
         $data = [
-            "user_id" => $device->user_id,
+            "user_id" => $device->latestUser[0]->id,
             "sim_card_id" => $device->sim_card_id,
             "serial_number" => Str::random(10),
             "imei" => Str::random(10),
@@ -408,7 +408,7 @@ class DeviceTest extends TestCase
         $serial_number = Str::random(10);
 
         $data = [
-            "user_id" => $device->user_id,
+            "user_id" => $device->latestUser[0]->id,
             "sim_card_id" => $device->sim_card_id,
             "serial_number" => $serial_number,
             "imei" => Str::random(10),
@@ -438,7 +438,7 @@ class DeviceTest extends TestCase
         $serial_number = Str::random(10);
 
         $data = [
-            "user_id" => $device->user_id,
+            "user_id" => $device->latestUser[0]->id,
             "sim_card_id" => $device->sim_card_id,
             "serial_number" => $device->serial_number,
             "imei" => $device->imei,
@@ -466,7 +466,7 @@ class DeviceTest extends TestCase
             $user,
         );
 
-        $user = User::doesntHave('devices')->first();
+        $user = User::first();
 
         $device = Device::orderBy('id', 'desc')->first();
         $url = '/api/v1/devices/' . $device->id;
@@ -489,9 +489,10 @@ class DeviceTest extends TestCase
         $response
         ->assertStatus(200);
 
-        $deviceuserHistory = DeviceUserHistory::where('user_id', $user->id)->where('device_id', $device->id)->first();
+        $device = Device::find($device->id);
 
-        $this->assertEquals($device->id, $deviceuserHistory->device_id);
+        //dd($device->latestUser[0]);
+        $this->assertEquals($user->id, $device->latestUser[0]->id);
         
     }
 

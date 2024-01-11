@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "ee93689a-e1a1-4f49-864c-a199267cd1b4",
+        "_postman_id": "e6675336-affe-42ef-9f2a-9a4652c6d093",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -153,18 +153,18 @@
                                     "query": [
                                         {
                                             "key": "export_id",
-                                            "value": "sint",
+                                            "value": "quo",
                                             "description": "the id of the generated export link",
                                             "disabled": false
                                         },
                                         {
                                             "key": "filename",
-                                            "value": "qui",
+                                            "value": "omnis",
                                             "description": "the filename of the generated export link",
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "{{baseUrl}}\/api\/v1\/devices\/get-download-link?export_id=sint&filename=qui"
+                                    "raw": "{{baseUrl}}\/api\/v1\/devices\/get-download-link?export_id=quo&filename=omnis"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -179,7 +179,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"export_id\":\"amet\",\"file_name\":\"sunt\"}"
+                                    "raw": "{\"export_id\":\"ea\",\"file_name\":\"eligendi\"}"
                                 },
                                 "description": "This endpoint allows you to get the download link of the csv generated."
                             },
@@ -387,7 +387,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"user_id\":1,\"sim_card_id\":1,\"serial_number\":\"SMG19999586660001\",\"imei\":\"SNG1800\",\"operating_system\":\"andriod\",\"type\":\"mobile\",\"manufacturer\":\"Samsung\",\"model\":\"aliquid\",\"is_active\":15}"
+                                    "raw": "{\"user_id\":1,\"sim_card_id\":1,\"serial_number\":\"SMG19999586660001\",\"imei\":\"SNG1800\",\"model\":\"nihil\",\"manufacturer\":\"Samsung\",\"operating_system\":\"andriod\",\"type\":\"mobile\"}"
                                 },
                                 "description": "This endpoint allows you to add a devices."
                             },
@@ -482,7 +482,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"user_id\":1,\"sim_card_id\":1,\"serial_number\":\"SMG19999586660001\",\"imei\":\"SNG1800\",\"operating_system\":\"andriod\",\"type\":\"mobile\",\"manufacturer\":\"Samsung\",\"model\":\"laboriosam\",\"is_active\":0}"
+                                    "raw": "{\"user_id\":1,\"sim_card_id\":1,\"serial_number\":\"SMG19999586660001\",\"imei\":\"SNG1800\",\"model\":\"non\",\"manufacturer\":\"Samsung\",\"operating_system\":\"andriod\",\"type\":\"mobile\",\"is_active\":0}"
                                 },
                                 "description": "This endpoint allows you to update a devices."
                             },

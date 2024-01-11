@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\V1;
 
 
-use App\Http\Resources\SimCardResource;
+
 use Illuminate\Http\Request;
 use App\Models\DeviceUserHistory;
 use App\Http\Controllers\Controller;
@@ -11,7 +11,6 @@ use App\Models\Device;
 use App\Models\User;
 use App\Models\SimCard;
 use App\Http\Resources\DeviceResource;
-use App\Http\Resources\UserResource;
 use App\Http\Requests\StoreDeviceRequest;
 use App\Http\Requests\UpdateDeviceRequest;
 use App\Jobs\ProcessDeviceExport;
@@ -249,52 +248,6 @@ class DeviceController extends Controller
                 'download_link' => asset($filePath)
             ]
         ], 200);
-    }
-
-    /**
-        * Get User List
-        *
-        * This endpoint allows you to get all the users
-        * @subgroup Helpers
-        * @subgroupDescription get users
-        * 
-        * @authenticated
-    */
-
-
-    public function getUsers(Request $request){
-
-        $users = User::when(isset($request->q), function($query) use ($request){
-
-            return $query->where('name', 'like', '%'. $request->q. '%')
-            ->orWhere('email', 'like', '%'. $request->q. '%');
-
-        })
-        ->get();
-
-        return UserResource::collection($users);
-    }
-
-    /**
-        * Get Sim Card List
-        *
-        * This endpoint allows you to get all the sim card that was not yet assigned to a device
-        * @subgroup Helpers
-        * @subgroupDescription get available sim cards
-        * @authenticated
-    */
-
-    public function getSimCards(Request $request){
-
-        $users = SimCard::when(isset($request->q), function($query) use ($request){
-
-            return $query->where('name', 'like', '%'. $request->q. '%');
-
-        })
-        ->doesntHave('device')
-        ->get();
-
-        return SimCardResource::collection($users);
     }
 
 }

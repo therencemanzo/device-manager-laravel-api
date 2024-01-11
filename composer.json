@@ -19,7 +19,7 @@
         "knuckleswtf/scribe": "^4.29",
         "laravel-json-api/testing": "^2.1",
         "laravel/pint": "^1.0",
-        "laravel/sail": "^1.18",
+        "laravel/sail": "^1.27",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
         "phpunit/phpunit": "^10.1",

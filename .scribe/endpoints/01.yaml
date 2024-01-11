@@ -43,7 +43,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 5PEvZDaahb3648V6ek1fcdg'
+      - 'Bearer v16Zk64dDEVa3g5abPe8hfc'
     controller: null
     method: null
     route: null
@@ -74,7 +74,7 @@ endpoints:
         name: export_id
         description: 'the id of the generated export link'
         required: true
-        example: voluptas
+        example: sint
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -83,20 +83,20 @@ endpoints:
         name: filename
         description: 'the filename of the generated export link'
         required: true
-        example: et
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanQueryParameters:
-      export_id: voluptas
-      filename: et
+      export_id: sint
+      filename: qui
     bodyParameters:
       export_id:
         name: export_id
         description: ''
         required: true
-        example: quo
+        example: amet
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -105,14 +105,14 @@ endpoints:
         name: file_name
         description: ''
         required: true
-        example: nemo
+        example: sunt
         type: string
         enumValues: []
         exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      export_id: quo
-      file_name: nemo
+      export_id: amet
+      file_name: sunt
     fileParameters: []
     responses:
       -
@@ -128,7 +128,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 65EaPZbVakD4f3c6d8ehgv1'
+      - 'Bearer Pb8a64EvkZc3ghdfaV1De65'
     controller: null
     method: null
     route: null
@@ -173,7 +173,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer DPgk8EfbZecVa661d5v3h4a'
+      - 'Bearer k8fPg3evcbh56EDV6a1Za4d'
     controller: null
     method: null
     route: null
@@ -218,7 +218,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ac63bfEgd4DaZe6hVP81kv5'
+      - 'Bearer 16Pk5DEZefV3dc4ga8hbv6a'
     controller: null
     method: null
     route: null
@@ -283,7 +283,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer kVdc4DE5ahfa6gPZ381e6bv'
+      - 'Bearer a1E3fb5k648Zda6VhvPDgec'
     controller: null
     method: null
     route: null
@@ -379,7 +379,7 @@ endpoints:
         name: model
         description: 'model of the device. Example Samsung: Galaxy'
         required: false
-        example: amet
+        example: aliquid
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -388,7 +388,7 @@ endpoints:
         name: is_active
         description: ''
         required: false
-        example: 16
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -401,15 +401,15 @@ endpoints:
       operating_system: andriod
       type: mobile
       manufacturer: Samsung
-      model: amet
-      is_active: 16
+      model: aliquid
+      is_active: 15
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer a8Z1fchE6e3VP5Dda4bv6gk'
+      - 'Bearer a4d3eDVfbEPgvZ6a58h61ck'
     controller: null
     method: null
     route: null
@@ -474,7 +474,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer DPk3EbZdv5648aha6e1Vcfg'
+      - 'Bearer b4ZPa8hVkd1age56cfv6DE3'
     controller: null
     method: null
     route: null
@@ -581,7 +581,7 @@ endpoints:
         name: model
         description: 'model of the device. Example Samsung: Galaxy'
         required: false
-        example: corporis
+        example: laboriosam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -603,7 +603,7 @@ endpoints:
       operating_system: andriod
       type: mobile
       manufacturer: Samsung
-      model: corporis
+      model: laboriosam
       is_active: 0
     fileParameters: []
     responses: []
@@ -611,7 +611,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ked4ca5gZ1V3fv66Eab8hPD'
+      - 'Bearer ck6aaf481eV5dZDb6Ev3hPg'
     controller: null
     method: null
     route: null
@@ -657,7 +657,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 3ehb16gavE485fDdVkaZP6c'
+      - 'Bearer kZ6v3hab1E4aPc6gf8e5DdV'
     controller: null
     method: null
     route: null
@@ -713,7 +713,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 8ebhf1453ZDVag6Pda6kEcv'
+      - 'Bearer Ddefvcg64ZPak15E683Vbha'
     controller: null
     method: null
     route: null

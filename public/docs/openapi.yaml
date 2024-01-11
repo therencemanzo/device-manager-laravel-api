@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'http://localhost:8000'
+    url: 'http://localhost'
 paths:
   /api/v1/login:
     post:
@@ -134,22 +134,22 @@ paths:
           in: query
           name: export_id
           description: 'the id of the generated export link'
-          example: voluptas
+          example: sint
           required: true
           schema:
             type: string
             description: 'the id of the generated export link'
-            example: voluptas
+            example: sint
         -
           in: query
           name: filename
           description: 'the filename of the generated export link'
-          example: et
+          example: qui
           required: true
           schema:
             type: string
             description: 'the filename of the generated export link'
-            example: et
+            example: qui
       responses:
         401:
           description: ''
@@ -175,11 +175,11 @@ paths:
                 export_id:
                   type: string
                   description: ''
-                  example: quo
+                  example: amet
                 file_name:
                   type: string
                   description: ''
-                  example: nemo
+                  example: sunt
               required:
                 - export_id
                 - file_name
@@ -312,11 +312,11 @@ paths:
                 model:
                   type: string
                   description: 'model of the device. Example Samsung: Galaxy'
-                  example: amet
+                  example: aliquid
                 is_active:
                   type: integer
                   description: ''
-                  example: 16
+                  example: 15
               required:
                 - user_id
                 - sim_card_id
@@ -391,7 +391,7 @@ paths:
                 model:
                   type: string
                   description: 'model of the device. Example Samsung: Galaxy'
-                  example: corporis
+                  example: laboriosam
                 is_active:
                   type: integer
                   description: 'if you want to update the status of the device 1 for active 0 for inactive.'

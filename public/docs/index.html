@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://localhost:8000";
+        var tryItOutBaseUrl = "http://localhost";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -140,7 +140,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 10, 2024</li>
+        <li>Last updated: January 11, 2024</li>
     </ul>
 </div>
 
@@ -149,7 +149,7 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost:8000</code>
+    <strong>Base URL</strong>: <code>http://localhost</code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -177,7 +177,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/v1/login" \
+    "http://localhost/api/v1/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -189,7 +189,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/login"
+    "http://localhost/api/v1/login"
 );
 
 const headers = {
@@ -341,7 +341,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/v1/logout" \
+    "http://localhost/api/v1/logout" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -349,7 +349,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/logout"
+    "http://localhost/api/v1/logout"
 );
 
 const headers = {
@@ -482,7 +482,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/devices/generate-export-link" \
+    --get "http://localhost/api/v1/devices/generate-export-link" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -490,7 +490,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/devices/generate-export-link"
+    "http://localhost/api/v1/devices/generate-export-link"
 );
 
 const headers = {
@@ -620,25 +620,25 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/devices/get-download-link?export_id=voluptas&amp;filename=et" \
+    --get "http://localhost/api/v1/devices/get-download-link?export_id=sint&amp;filename=qui" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"export_id\": \"quo\",
-    \"file_name\": \"nemo\"
+    \"export_id\": \"amet\",
+    \"file_name\": \"sunt\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/devices/get-download-link"
+    "http://localhost/api/v1/devices/get-download-link"
 );
 
 const params = {
-    "export_id": "voluptas",
-    "filename": "et",
+    "export_id": "sint",
+    "filename": "qui",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -650,8 +650,8 @@ const headers = {
 };
 
 let body = {
-    "export_id": "quo",
-    "file_name": "nemo"
+    "export_id": "amet",
+    "file_name": "sunt"
 };
 
 fetch(url, {
@@ -767,10 +767,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="export_id"                data-endpoint="GETapi-v1-devices-get-download-link"
-               value="voluptas"
+               value="sint"
                data-component="query">
     <br>
-<p>the id of the generated export link Example: <code>voluptas</code></p>
+<p>the id of the generated export link Example: <code>sint</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>filename</code></b>&nbsp;&nbsp;
@@ -778,10 +778,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="filename"                data-endpoint="GETapi-v1-devices-get-download-link"
-               value="et"
+               value="qui"
                data-component="query">
     <br>
-<p>the filename of the generated export link Example: <code>et</code></p>
+<p>the filename of the generated export link Example: <code>qui</code></p>
             </div>
                         <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -790,10 +790,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="export_id"                data-endpoint="GETapi-v1-devices-get-download-link"
-               value="quo"
+               value="amet"
                data-component="body">
     <br>
-<p>Example: <code>quo</code></p>
+<p>Example: <code>amet</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>file_name</code></b>&nbsp;&nbsp;
@@ -801,10 +801,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="file_name"                data-endpoint="GETapi-v1-devices-get-download-link"
-               value="nemo"
+               value="sunt"
                data-component="body">
     <br>
-<p>Example: <code>nemo</code></p>
+<p>Example: <code>sunt</code></p>
         </div>
         </form>
 
@@ -826,7 +826,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/devices/sim-cards" \
+    --get "http://localhost/api/v1/devices/sim-cards" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -834,7 +834,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/devices/sim-cards"
+    "http://localhost/api/v1/devices/sim-cards"
 );
 
 const headers = {
@@ -964,7 +964,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/devices/users" \
+    --get "http://localhost/api/v1/devices/users" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -972,7 +972,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/devices/users"
+    "http://localhost/api/v1/devices/users"
 );
 
 const headers = {
@@ -1106,7 +1106,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/devices?os=ios&amp;q=samsung" \
+    --get "http://localhost/api/v1/devices?os=ios&amp;q=samsung" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1114,7 +1114,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/devices"
+    "http://localhost/api/v1/devices"
 );
 
 const params = {
@@ -1274,7 +1274,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8000/api/v1/devices" \
+    "http://localhost/api/v1/devices" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1286,15 +1286,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"operating_system\": \"andriod\",
     \"type\": \"mobile\",
     \"manufacturer\": \"Samsung\",
-    \"model\": \"amet\",
-    \"is_active\": 16
+    \"model\": \"aliquid\",
+    \"is_active\": 15
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/devices"
+    "http://localhost/api/v1/devices"
 );
 
 const headers = {
@@ -1311,8 +1311,8 @@ let body = {
     "operating_system": "andriod",
     "type": "mobile",
     "manufacturer": "Samsung",
-    "model": "amet",
-    "is_active": 16
+    "model": "aliquid",
+    "is_active": 15
 };
 
 fetch(url, {
@@ -1489,10 +1489,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="model"                data-endpoint="POSTapi-v1-devices"
-               value="amet"
+               value="aliquid"
                data-component="body">
     <br>
-<p>model of the device. Example Samsung: Galaxy Example: <code>amet</code></p>
+<p>model of the device. Example Samsung: Galaxy Example: <code>aliquid</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
@@ -1500,10 +1500,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="is_active"                data-endpoint="POSTapi-v1-devices"
-               value="16"
+               value="15"
                data-component="body">
     <br>
-<p>Example: <code>16</code></p>
+<p>Example: <code>15</code></p>
         </div>
         </form>
 
@@ -1521,7 +1521,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8000/api/v1/devices/1" \
+    --get "http://localhost/api/v1/devices/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1529,7 +1529,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/devices/1"
+    "http://localhost/api/v1/devices/1"
 );
 
 const headers = {
@@ -1682,7 +1682,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8000/api/v1/devices/1" \
+    "http://localhost/api/v1/devices/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1694,7 +1694,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"operating_system\": \"andriod\",
     \"type\": \"mobile\",
     \"manufacturer\": \"Samsung\",
-    \"model\": \"corporis\",
+    \"model\": \"laboriosam\",
     \"is_active\": 0
 }"
 </code></pre></div>
@@ -1702,7 +1702,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/devices/1"
+    "http://localhost/api/v1/devices/1"
 );
 
 const headers = {
@@ -1719,7 +1719,7 @@ let body = {
     "operating_system": "andriod",
     "type": "mobile",
     "manufacturer": "Samsung",
-    "model": "corporis",
+    "model": "laboriosam",
     "is_active": 0
 };
 
@@ -1913,10 +1913,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="model"                data-endpoint="PUTapi-v1-devices--id-"
-               value="corporis"
+               value="laboriosam"
                data-component="body">
     <br>
-<p>model of the device. Example Samsung: Galaxy Example: <code>corporis</code></p>
+<p>model of the device. Example Samsung: Galaxy Example: <code>laboriosam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>is_active</code></b>&nbsp;&nbsp;
@@ -1945,7 +1945,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/v1/devices/1" \
+    "http://localhost/api/v1/devices/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1953,7 +1953,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/devices/1"
+    "http://localhost/api/v1/devices/1"
 );
 
 const headers = {
@@ -2079,7 +2079,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PATCH \
-    "http://localhost:8000/api/v1/devices/status/1" \
+    "http://localhost/api/v1/devices/status/1" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -2091,7 +2091,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/v1/devices/status/1"
+    "http://localhost/api/v1/devices/status/1"
 );
 
 const headers = {

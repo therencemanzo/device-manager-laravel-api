@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\V1;
 
 
-
+use App\Http\Resources\SimCardResource;
 use Illuminate\Http\Request;
 use App\Models\DeviceUserHistory;
 use App\Http\Controllers\Controller;
@@ -240,14 +240,15 @@ class DeviceController extends Controller
             'file_name' => ['required', 'string'],
         ]);
         
-        $filePath = 'storage/'.$validated['file_name'];
+        $filePath = $validated['file_name'];
 
         return response()->json([
             'data' => [
-                'export_details' => Bus::findBatch($$validated['export_id']),
-                'download_link' => asset($filePath)
+                'export_details' => Bus::findBatch($validated['export_id']),
+                'download_link' => url('download/'.$filePath)
             ]
         ], 200);
     }
+
 
 }

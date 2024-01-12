@@ -43,7 +43,7 @@ class AppendMoreDevices implements ShouldQueue
             ];
         });
 
-        $filePath = storage_path("app/public/{$this->file}");
+        $filePath = storage_path("app/{$this->file}");
 
         // Open the file in write mode and create it if it doesn't exist
         $file = fopen($filePath, 'a+');
